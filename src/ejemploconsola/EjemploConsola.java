@@ -48,6 +48,53 @@ public class EjemploConsola {
         return listaMaximos;
     }
 
+    private boolean palindromo (String cadena) {
+    
+        //Primera fase: creo un nuevo String que sea una copia del
+        //del anterior sin espacios en blanco
+        String auxiliar = "";
+    // las comillas dobles indican que es un string
+        for (int i=0; i<cadena.length(); i++){
+    
+            if (cadena.charAt(i) != ' ' ){
+    // las comillas simples indican que es un char
+    // con este método hacemos que entre solo para quitar los espacios
+                auxiliar = auxiliar + cadena.charAt(i);
+    // el + sirve para concatenar strings
+        }
+    }
+    //ahora en auxiliar tengo el string pero sin espacios en blanco
+    //declaro dos indices para que digan que posiciones estoy comparando
+    int indiceIzq = 0;
+    int indiceDer = auxiliar.length()-1;
+    //mientras sean iguales los caracteres en esas posiciones la palabra
+    //será un palíndromo, en el momento que una de esas comparaciones
+    //falle es que no es un palíndromo
+    
+    //además, si el índice izquierdo es mayor que el derecho, ya he 
+    //chequeado toda la frase
+    while (auxiliar.charAt(indiceIzq)== auxiliar.charAt(indiceDer)&& indiceIzq <= indiceDer){
+        indiceIzq++;
+        indiceDer--;
+        
+    }   
+    
+    boolean resultado = true;
+    
+    if (indiceIzq < indiceDer){
+        // si esto se cumple es que la palabra no es un palíndromo
+        resultado = false;
+    }
+        
+        return resultado; 
+    }
+    
+    
+    
+    
+    
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -58,11 +105,10 @@ public class EjemploConsola {
  propiedades del método
          */
         System.out.println(Arrays.toString(ejercicios.maximos(ejercicios.listaNumeros)));
-
         System.out.println(Arrays.toString(ejercicios.maximos(ejercicios.listaNumeros2)));
-
         System.out.println(Arrays.toString(ejercicios.maximos(ejercicios.listaNumeros3)));
-
         System.out.println(Arrays.toString(ejercicios.maximos(ejercicios.listaNumeros4)));
+        
+        System.out.println(ejercicios.palindromo("ACASO HUBO BUHOS ACA"));
     }
 }
