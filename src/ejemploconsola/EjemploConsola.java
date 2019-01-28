@@ -112,11 +112,31 @@ public class EjemploConsola {
     }
         if (indiceIzq < indiceDer) {
         
-             System.out.println("La cadena " + cadena + "NO es un palíndromo");
+             System.out.println("La cadena " + cadena + " NO es un palíndromo");
+        }
+        else {
+          System.out.println("La cadena " + cadena + " SI es un palíndromo");
         }
     
     }
  
+    private boolean isograma (String cadena) {
+        
+        for (int i=0; i< cadena.length()-1; i++){
+    //colocando el -1 hacemos que no mire la última con las demás
+    //ya que no nos interesa
+           for (int j=i+1; j< cadena.length(); j++){
+    // colocamos el +1 para que no lo mire con la primera letra sino
+    //con la segunda
+               if (cadena.charAt(j) == cadena.charAt(i)){
+    //comparamos la cadena i con la j
+                   return false;
+               }
+           }
+        }
+        return true;
+} 
+    
     /**
      * @param args the command line arguments
      */
@@ -134,5 +154,8 @@ public class EjemploConsola {
         System.out.println(ejercicios.palindromo("ACASO HUBO BUHOS ACA"));
         
         ejercicios.palindromoV2("ACASO HUBO BUHOS ACA");
+        
+        System.out.println(ejercicios.isograma("MURCIELAGO"));
+        System.out.println(ejercicios.isograma("MURCIELAGOO"));
     }
 }
