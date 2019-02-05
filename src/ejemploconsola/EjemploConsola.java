@@ -137,6 +137,79 @@ public class EjemploConsola {
         return true;
 } 
     
+   private void imprimeMes(int numx){
+       
+        if (numx >7){
+            numx = 7;
+        }
+        //filtra el número para que siempre valga entre 0 y 7
+        int contador = 0;
+        //pintara tantas xx como numX sea
+    
+        for (int j=1; j<numx; j++){
+            System.out.print("XX ");
+            contador = contador + 1;
+        }
+        for (int i=1; i<=31; i++){
+            if (contador <=7){
+                if (i<=9){
+                    System.out.print("0" + i);
+                    System.out.print(" ");
+                }}
+            if (i>9){
+                System.out.print(i);
+                System.out.print(" ");
+            }
+            contador = contador + 1;
+        
+            if(contador==7){
+                System.out.println("");
+                contador = 0;
+            }
+        }
+        for(int x=contador; x<7; x++){
+            System.out.print("XX ");
+        }
+        
+    }
+   
+   private boolean esAnagrama (String palabraA, String palabraB){
+   
+       palabraA = palabraA.toUpperCase();
+       palabraB = palabraB.toUpperCase();       
+       // de esta forma pasa todas las letras a mayúsculas
+           
+       boolean anagrama = false; //indica si las palabras son anagramas o no
+   
+        if(palabraA.length() == palabraB.length()){
+// solo entra a chequear si las dos palabras tienen el mismo número de letras            
+            for (int i=0; i<palabraA.length(); i++){
+               int posicion = 0;
+               
+               while (posicion < palabraB.length() && palabraA.charAt(i)!= palabraB.charAt(posicion)){
+    //con esto comparamos la primera palabra con el otro string y no compara infinitas veces               
+                   posicion++;
+    //esto hace que busque si es o no igual cada letra
+    //en el caso de ser igual sale del bucle              
+               } 
+        if (posicion == palabraB.length()){
+            //la letra no estaba por lo que retorna falso
+            return false;       
+        }     
+        else {
+          palabraB = palabraB.substring(0, posicion) + palabraB.substring(posicion+1);
+          //para eliminar el caracter que hayamos encontrado igual
+        }
+            }
+        
+       if (palabraB.length()== 0){
+           return true;
+       }
+      }
+       return anagrama;
+   }
+
+ 
     /**
      * @param args the command line arguments
      */
@@ -146,6 +219,7 @@ public class EjemploConsola {
  cuando creamos un objeto como ejercicios para poder llamar a las
  propiedades del método
          */
+        /*
         System.out.println(Arrays.toString(ejercicios.maximos(ejercicios.listaNumeros)));
         System.out.println(Arrays.toString(ejercicios.maximos(ejercicios.listaNumeros2)));
         System.out.println(Arrays.toString(ejercicios.maximos(ejercicios.listaNumeros3)));
@@ -157,5 +231,15 @@ public class EjemploConsola {
         
         System.out.println(ejercicios.isograma("MURCIELAGO"));
         System.out.println(ejercicios.isograma("MURCIELAGOO"));
+        
+        for (int i=0; i<7; i++){
+            ejercicios.imprimeMes(i);
+            System.out.println();
+        }
+*/
+        System.out.println("roma amor " + ejercicios.esAnagrama("roma", "amor"));
+        System.out.println("cabron bronca " + ejercicios.esAnagrama("cabron", "bronca")); 
+        
+        System.out.println("jamon pepee " + ejercicios.esAnagrama("jamon", "pepee"));
     }
 }
