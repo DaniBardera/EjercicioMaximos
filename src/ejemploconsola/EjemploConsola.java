@@ -209,7 +209,21 @@ public class EjemploConsola {
        return anagrama;
    }
 
- 
+   
+   private void hazAcronimo (String frase){
+   
+       String acronimo= "";
+       acronimo = frase.substring(0,1);
+       for (int i=0; i< frase.length()-1; i++){
+           if (frase.charAt(i) == ' '){
+            acronimo = acronimo + frase.charAt(i+1);
+       
+       }
+       System.out.println("El acronimo de " + frase +" es" + acronimo);
+       }
+   
+   }
+   
     /**
      * @param args the command line arguments
      */
@@ -237,9 +251,12 @@ public class EjemploConsola {
             System.out.println();
         }
 */
+        /*
         System.out.println("roma amor " + ejercicios.esAnagrama("roma", "amor"));
         System.out.println("cabron bronca " + ejercicios.esAnagrama("cabron", "bronca")); 
         
         System.out.println("jamon pepee " + ejercicios.esAnagrama("jamon", "pepee"));
+         System.out.println("iamlordvoldemort tommarvoloriddle " + ejercicios.esAnagrama("iamlordvoldemort", "tommarvoloriddle"));
+          */
     }
 }
